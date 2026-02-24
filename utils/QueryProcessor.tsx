@@ -30,6 +30,21 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+  // return prime numbers in query
+  if (query.toLowerCase().includes("prime")) {
+    const primeNumbers = query.match(/\d+/g)?.filter(num => {
+      const n = Number(num);
+      if (n <= 1) return false;
+      for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+      }
+      return true;
+    });
+    if (primeNumbers && primeNumbers.length > 0) {
+      return primeNumbers.join(", ");
+    }
+  }
+
   // finds numbers in a query that are both a square and a cube
   const numbers = query.match(/\d+/g);
   if (numbers) {
@@ -42,6 +57,15 @@ export default function QueryProcessor(query: string): string {
     }
   } 
 
+  // minus numbers in query
+  if (query.toLowerCase().includes("minus")) {
+    const numbers = query.match(/\d+/g);
+    if (numbers) {
+      const difference = numbers.reduce((acc, num) => acc - Number(num));
+      return difference.toString();
+    }
+  }
+
   // Return largest number in the query
   const largestNumbers = query.match(/\d+/g);
   if (largestNumbers) {
@@ -50,6 +74,10 @@ export default function QueryProcessor(query: string): string {
   }
 
 
+
+
   return "";
 
 }
+}
+
