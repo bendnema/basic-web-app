@@ -95,4 +95,12 @@ describe("QueryProcessor", () => {
             (91 * 12 + 17).toString()
           ));
      })
+
+    test ('should return correct scrabble score of a word', () => {
+        const query = "What is the scrabble score of zoo?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "12"
+          ));
+     }) 
 });
