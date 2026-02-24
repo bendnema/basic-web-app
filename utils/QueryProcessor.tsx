@@ -30,10 +30,22 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
-  // Return largest number in the query
+  // finds numbers in a query that are both a square and a cube
   const numbers = query.match(/\d+/g);
   if (numbers) {
-    const maxNumber = Math.max(...numbers.map(Number));
+    const squareAndCube = numbers.find(num => {
+      const n = Number(num);
+      return Number.isInteger(Math.sqrt(n)) && Number.isInteger(Math.cbrt(n));
+    });
+    if (squareAndCube) {
+      return squareAndCube;
+    }
+  } 
+
+  // Return largest number in the query
+  const largestNumbers = query.match(/\d+/g);
+  if (largestNumbers) {
+    const maxNumber = Math.max(...largestNumbers.map(Number));
     return maxNumber.toString();
   }
 
@@ -41,4 +53,3 @@ export default function QueryProcessor(query: string): string {
   return "";
 
 }
-
