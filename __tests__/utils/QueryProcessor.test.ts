@@ -33,4 +33,12 @@ describe("QueryProcessor", () => {
             "bnematad"
           ));
     })
+
+    test('should return largest number in query', () => {
+        const query = "What is the largest number in 3, 5, and 2?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "5"
+          ));
+    })
 });
