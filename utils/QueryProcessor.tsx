@@ -15,6 +15,15 @@ export default function QueryProcessor(query: string): string {
     return "bnematad";
   }
 
+  // adds numbers in query
+  if (query.toLowerCase().includes("plus")) {
+    const numbers = query.match(/\d+/g);
+    if (numbers) {
+      const sum = numbers.reduce((acc, num) => acc + Number(num), 0);
+      return sum.toString();
+    }
+  }
+
   // Return largest number in the query
   const numbers = query.match(/\d+/g);
   if (numbers) {
@@ -23,4 +32,5 @@ export default function QueryProcessor(query: string): string {
   }
 
   return "";
+
 }
