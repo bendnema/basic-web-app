@@ -41,4 +41,12 @@ describe("QueryProcessor", () => {
             "5"
           ));
     })
+
+    test('should return sum of numbers in query', () => {
+        const query = "What is 3 plus 5?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "8"
+          ));
+    })
 });
