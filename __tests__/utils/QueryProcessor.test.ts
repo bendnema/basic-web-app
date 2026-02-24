@@ -55,4 +55,12 @@ describe("QueryProcessor", () => {
             "15"
           ));
     })
+
+    test ('should return number that is both a square and a cube', () => {
+        const query = "What is the number that is both a square and a cube in 1, 8, and 27?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "1"
+          ));
+    })
 });
