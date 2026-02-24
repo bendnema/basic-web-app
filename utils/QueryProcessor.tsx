@@ -15,6 +15,16 @@ export default function QueryProcessor(query: string): string {
     return "bnematad";
   }
 
+  // What is 97 to the power of 34?
+  if (query.toLowerCase().includes("to the power of")) {
+    const numbers = query.match(/\d+/g);
+    if (numbers && numbers.length >= 2) {
+      const base = Number(numbers[0]);
+      const exponent = Number(numbers[1]);
+      return Math.pow(base, exponent).toString();
+    }
+  }
+
   // adds numbers in query or multiples numbers in a query
   if (query.toLowerCase().includes("plus")) {
     const numbers = query.match(/\d+/g);
