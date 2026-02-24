@@ -15,12 +15,18 @@ export default function QueryProcessor(query: string): string {
     return "bnematad";
   }
 
-  // adds numbers in query
+  // adds numbers in query or multiples numbers in a query
   if (query.toLowerCase().includes("plus")) {
     const numbers = query.match(/\d+/g);
     if (numbers) {
       const sum = numbers.reduce((acc, num) => acc + Number(num), 0);
       return sum.toString();
+    }
+  } else if (query.toLowerCase().includes("multiplied by")) {
+    const numbers = query.match(/\d+/g);
+    if (numbers) {
+      const product = numbers.reduce((acc, num) => acc * Number(num), 1);
+      return product.toString();
     }
   }
 
@@ -31,6 +37,8 @@ export default function QueryProcessor(query: string): string {
     return maxNumber.toString();
   }
 
+
   return "";
 
 }
+
