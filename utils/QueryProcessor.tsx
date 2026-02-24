@@ -39,7 +39,7 @@ export default function QueryProcessor(query: string): string {
         if (n % i === 0) return false;
       }
       return true;
-    });
+    }).sort((a, b) => Number(a) - Number(b));
     if (primeNumbers && primeNumbers.length > 0) {
       return primeNumbers.join(", ");
     }
@@ -61,7 +61,7 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("minus")) {
     const numbers = query.match(/\d+/g);
     if (numbers) {
-      const difference = numbers.reduce((acc, num) => acc - Number(num));
+      const difference = numbers.map(Number).reduce((acc, num) => acc - num);
       return difference.toString();
     }
   }
@@ -79,5 +79,3 @@ export default function QueryProcessor(query: string): string {
   return "";
 
 }
-}
-
