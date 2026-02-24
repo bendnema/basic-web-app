@@ -42,11 +42,17 @@ describe("QueryProcessor", () => {
           ));
     })
 
-    test('should return sum of numbers in query', () => {
-        const query = "What is 3 plus 5?";
-        const response: string = QueryProcessor(query);
-        expect(response).toBe((
+    test('should return sum or multiplication of numbers in query', () => {
+        const query1 = "What is 3 plus 5?";
+        const response1: string = QueryProcessor(query1);
+        expect(response1).toBe((
             "8"
+          ));
+
+        const query2 = "What is 3 multiplied by 5?";
+        const response2: string = QueryProcessor(query2);
+        expect(response2).toBe((
+            "15"
           ));
     })
 });
