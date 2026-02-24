@@ -15,5 +15,12 @@ export default function QueryProcessor(query: string): string {
     return "bnematad";
   }
 
+  // Return largest number in the query
+  const numbers = query.match(/\d+/g);
+  if (numbers) {
+    const maxNumber = Math.max(...numbers.map(Number));
+    return maxNumber.toString();
+  }
+
   return "";
 }
