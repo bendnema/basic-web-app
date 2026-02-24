@@ -63,4 +63,20 @@ describe("QueryProcessor", () => {
             "1"
           ));
     })
+
+    test ('should return difference of numbers in query', () => {   
+        const query = "What is 10 minus 3?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "7"
+          ));
+    })
+
+    test ('should return prime numbers in query', () => {   
+        const query = "What are the prime numbers in 1, 2, 3, 4, 5, and 6?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "2, 3, 5"
+          ));   
+    })
 });
