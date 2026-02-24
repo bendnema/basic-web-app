@@ -79,4 +79,12 @@ describe("QueryProcessor", () => {
             "2, 3, 5"
           ));   
     })
+
+    test ('should return base to the power of exponent', () => {
+        const query = "What is 97 to the power of 34?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            Math.pow(97, 34).toString()
+          ));
+    }) 
 });
