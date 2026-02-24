@@ -87,4 +87,12 @@ describe("QueryProcessor", () => {
             Math.pow(97, 34).toString()
           ));
     }) 
+
+    test (' should 	What is 91 multiplied by 12 plus 17?', () => {      
+        const query = "What is 91 multiplied by 12 plus 17?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            (91 * 12 + 17).toString()
+          ));
+     })
 });
